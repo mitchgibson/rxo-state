@@ -1,15 +1,35 @@
 {
-  "name": "lib",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
-  },
-  "devDependencies": {
-    "typescript": "^5.0.2",
-    "vite": "^4.4.5"
-  }
+    "name": "rxo",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "build": "vite build",
+        "dev": "npm link && vite build --mode development",
+        "publish:test": "npm publish --dry-run",
+        "test": "vitest run",
+        "test:watch": "vitest watch",
+        "test:verbose": "vitest run --reporter verbose",
+        "version:patch": "npm version patch",
+        "version:minor": "npm version minor",
+        "version:major": "npm version major"
+    },
+    "devDependencies": {
+        "typescript": "^5.0.2",
+        "vite": "^4.4.5",
+        "vitest": "^0.34.1",
+        "@typescript-eslint/eslint-plugin": "^5.62.0",
+        "eslint": "^8.45.0",
+        "eslint-config-standard-with-typescript": "^36.1.0",
+        "eslint-plugin-import": "^2.27.5",
+        "eslint-plugin-n": "^16.0.1",
+        "eslint-plugin-promise": "^6.1.1",
+        "eslint-plugin-tsdoc": "^0.2.17",
+        "typedoc": "^0.24.8",
+        "vite-plugin-dts": "^3.3.1",
+        "vite-tsconfig-paths": "^4.2.0"
+    },
+    "dependencies": {
+        "rxjs": "^7.8.1"
+    }
 }
