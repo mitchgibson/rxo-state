@@ -1,8 +1,23 @@
 {
     "name": "rxo",
-    "private": true,
     "version": "0.2.0",
     "type": "module",
+    "files": [
+        "dist"
+    ],
+    "main": "./dist/rxo.cjs",
+    "module": "./dist/rxo.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "import": "./dist/rxo.js",
+            "require": "./dist/rxo.umd.cjs"
+        }
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/mitchgibson/rxo.git"
+    },
     "scripts": {
         "build": "vite build",
         "dev": "npm link && vite build --mode development",
