@@ -5,7 +5,7 @@ Observable state management using RxJs.
 ## Install
 
 ```bash
-npm install rxo
+npm install rxo-state
 ```
 
 ## Usage
