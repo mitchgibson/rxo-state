@@ -1,11 +1,10 @@
 import { Mutation } from "./Mutation.type";
-import { MutationConfiguration } from "./MutationConfiguration.type";
 
 /**
  * @name IMutate
  * @description Interface for mutable state classes
  */
-export interface IMutate<T> {
+export interface IMutate {
     /**
      * @name mutate
      * @description Triggers the state mutation
@@ -13,10 +12,4 @@ export interface IMutate<T> {
      * @returns void
      */
     mutate(mutation: Mutation): void;
-    /**
-     * @name addMutation
-     * @description Adds a mutation to the state
-     * @param mutation { MutationConfiguration<T> }
-     */
-    addMutation(mutation: MutationConfiguration<T>): void;
 }

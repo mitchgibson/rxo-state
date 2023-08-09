@@ -1,2 +1,2 @@
 export * from "./State.interface";
-export * from "./observable-state";
+export * from "./RxoState";

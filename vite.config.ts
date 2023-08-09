@@ -25,6 +25,6 @@ export default defineConfig(({mode}) => ({
     },
     test: {
         threads: true,
-        include: ["src/**/*.spec.ts"],
+        include: ["src/**/__tests__/**/*.spec.ts"],
     },
 }));
