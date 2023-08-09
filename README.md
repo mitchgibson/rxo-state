@@ -1,4 +1,4 @@
-# RXO
+# RXO-STATE
 
 Observable state management using RxJs.
 
