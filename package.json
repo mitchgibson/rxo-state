@@ -5,13 +5,13 @@
     "files": [
         "dist"
     ],
-    "main": "./dist/rxo.cjs",
-    "module": "./dist/rxo.js",
+    "main": "./dist/rxo-state.cjs",
+    "module": "./dist/rxo-state.js",
     "types": "./dist/index.d.ts",
     "exports": {
         ".": {
-            "import": "./dist/rxo.js",
-            "require": "./dist/rxo.umd.cjs"
+            "import": "./dist/rxo-state.js",
+            "require": "./dist/rxo-state.umd.cjs"
         }
     },
     "repository": {
