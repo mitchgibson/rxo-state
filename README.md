@@ -10,38 +10,24 @@ npm install rxo-state
 
 ## Usage
 
-### Create a new ObservableState instance
+### Create a new state by extending RxoState abstract class
 
-ObservableState requires an initial state upon instantiation.
-
-```typescript
-const state = new ObservableState({ test: true });
-```
-
-Optionally, you can pass mutation actions in the constructor.
+RxoState requires an initial state upon instantiation and an implementation for the `mutate` method.
 
 ```typescript
-const state = new ObservableState(
-    { test: true },
-    {
-        action: "change",
-        mutator: (data) => {
-            data.test = false;
-            return data;
+export class MyState extends RxoState<{test: boolean}> {
+    constructor() {
+        super({test: true})
+    }
+
+    mutate(mutation:Mutation<boolean>): void {
+        if(mutation.action === 'change') {
+            this.next(mutation.data);
+            this.emit("some-event", mutation.data);     // optional event emission
         }
+        ...
     }
-);
-```
-
-You can also add mutators for mutation actions after instantiation.
-
-```typescript
-state.addMutation({
-    action: "change",
-    data: {
-        test: false
-    }
-});
+}
 ```
 
 ### View current state value
@@ -81,25 +67,15 @@ state.listen("some-event", (value) => {
 
 ### Emit an event from a mutator
 
-Events are emitted by mutators provided to the ObservableState object via `constructor` or `addMutator` method.
-
-The event emitter is passed to the mutator as its second parameter. It can be called to fire an event.
+Events can be emitted from the subclass of RxoState by call the `emit` method.
 
 ```typescript
-const state = new ObservableState(
-    { test: true },
-    {
-        action: "change",
-        mutator: (data, emitter) => {
-            data.test = false;
-            emitter("some-event", false);       // emits the event when mutator is executed
-            return data;
-        }
-    }
-);
+this.emit("some-event", mutation.data);
 ```
 
 ### Reset the state to the initial value it was created with
+
+> The `reset` method will always emit the `RXO_RESET` event with the initial state as its value.
 
 ```typescript
 state.reset()
