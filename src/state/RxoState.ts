@@ -1,5 +1,5 @@
 import { BehaviorSubject, Observable, Subject } from "rxjs";
-import { IMutate, INotify, IReset, Mutation } from "..";
+import { IMutate, INotify, IReset } from "..";
 import { IState } from ".";
 
 export const RXO_RESET_EVENT = "RXO_RESET";
@@ -30,7 +30,7 @@ export abstract class RxoState<T = unknown> implements IState<T>, IMutate, IRese
         return this._subject$.asObservable();
     }
 
-    public abstract mutate(mutation: Mutation): void;
+    public abstract mutate(...args:any[]): void;
 
     public reset(): void {
         this.emit(RXO_RESET_EVENT, this._initialState);

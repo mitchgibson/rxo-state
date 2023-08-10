@@ -1,5 +1,3 @@
-import { Mutation } from "./Mutation.type";
-
 /**
  * @name IMutate
  * @description Interface for mutable state classes
@@ -8,8 +6,8 @@ export interface IMutate {
     /**
      * @name mutate
      * @description Triggers the state mutation
-     * @param mutation { Mutation }
+     * @param mutation { any }
      * @returns void
      */
-    mutate(mutation: Mutation): void;
+    mutate(mutation?:any): void;
 }
