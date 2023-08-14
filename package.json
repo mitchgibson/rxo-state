@@ -8,12 +8,6 @@
     "main": "./dist/rxo-state.cjs",
     "module": "./dist/rxo-state.js",
     "types": "./dist/index.d.ts",
-    "exports": {
-        ".": {
-            "import": "./dist/rxo-state.js",
-            "require": "./dist/rxo-state.umd.cjs"
-        }
-    },
     "repository": {
         "type": "git",
         "url": "https://github.com/mitchgibson/rxo-state.git"
