@@ -6,8 +6,8 @@ export interface IMutate {
     /**
      * @name mutate
      * @description Triggers the state mutation
-     * @param mutation { any }
+     * @param mutation { unknown }
      * @returns void
      */
-    mutate(mutation?:any): void;
+    mutate(mutation?:unknown): void;
 }
