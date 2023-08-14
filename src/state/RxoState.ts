@@ -30,7 +30,7 @@ export abstract class RxoState<T = unknown> implements IState<T>, IMutate, IRese
         return this._subject$.asObservable();
     }
 
-    public abstract mutate(...args:any[]): void;
+    public abstract mutate(...args:unknown[]): void;
 
     public reset(): void {
         this.emit(RXO_RESET_EVENT, this._initialState);
