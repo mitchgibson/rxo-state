@@ -19,7 +19,6 @@ export abstract class RxoState<T = unknown> implements IState<T>, IMutate, IRese
     constructor(initialState: T) {
         this._initialState = initialState;
         this._subject$ = new BehaviorSubject<T>(this._initialState);
-        this._subject$.next(this._initialState);
     }
 
     public peek(): T {
