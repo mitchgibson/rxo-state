@@ -29,6 +29,16 @@ export abstract class RxoState<T = unknown> implements IState<T>, IMutate, IRese
         return this._subject$.asObservable();
     }
 
+    public signal(func: (value: T) => unknown): () => void {
+        const observable = this.observe().subscribe((value) => {
+            func(value);
+        });
+    
+        return () => {
+            observable.unsubscribe();
+        };
+      }
+
     public abstract mutate(...args:unknown[]): void;
 
     public reset(): void {
