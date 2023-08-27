@@ -12,6 +12,7 @@ export type RXO_EVENT = typeof RXO_RESET_EVENT;
  * @param {T} _initialState The initial state
  */
 export abstract class RxoState<T = unknown> implements IState<T>, IMutate, IReset, INotify {
+    public value$: Observable<T> = this.observe();
     private _initialState: T;
     private _subject$: BehaviorSubject<T>;
     private _listeners: Record<string, Subject<unknown>> = {};
