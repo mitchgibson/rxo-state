@@ -35,9 +35,13 @@ export abstract class RxoState<T = unknown> implements IState<T>, IMutate, IRese
         const steps = path.split(".");
         return this._subject$.asObservable().pipe(
             map((state) => {
-                return steps.reduce((acc: any, step:string) => {
-                    return acc[step];
-                }, state);
+                try {
+                    return steps.reduce((acc: any, step:string) => {
+                        return acc[step];
+                    }, state);
+                } catch(e) {
+                    return undefined;
+                }
             })
         );
     }
