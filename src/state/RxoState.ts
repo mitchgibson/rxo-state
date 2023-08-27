@@ -12,7 +12,7 @@ export type RXO_EVENT = typeof RXO_RESET_EVENT;
  * @param {T} _initialState The initial state
  */
 export abstract class RxoState<T = unknown> implements IState<T>, IMutate, IReset, INotify {
-    public value$: Observable<T> = this.observe();
+    public value$: Observable<T>;
     private _initialState: T;
     private _subject$: BehaviorSubject<T>;
     private _listeners: Record<string, Subject<unknown>> = {};
@@ -20,6 +20,7 @@ export abstract class RxoState<T = unknown> implements IState<T>, IMutate, IRese
     constructor(initialState: T) {
         this._initialState = initialState;
         this._subject$ = new BehaviorSubject<T>(this._initialState);
+        this.value$ = this._subject$.asObservable();
     }
 
     public peek(): T {
