@@ -1,4 +1,4 @@
-import { BehaviorSubject, Observable, Subject } from "rxjs";
+import { BehaviorSubject, Observable, Subject, map } from "rxjs";
 import { IMutate, INotify, IReset } from "..";
 import { IState } from ".";
 
@@ -29,6 +29,17 @@ export abstract class RxoState<T = unknown> implements IState<T>, IMutate, IRese
 
     public observe(): Observable<T> {
         return this._subject$.asObservable();
+    }
+
+    public observeProperty<U = any>(path:string): Observable<U> {
+        const steps = path.split(".");
+        return this._subject$.asObservable().pipe(
+            map((state) => {
+                return steps.reduce((acc: any, step:string) => {
+                    return acc[step];
+                }, state);
+            })
+        );
     }
 
     public signal(func: (value: T) => any): () => void {
