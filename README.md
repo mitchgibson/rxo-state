@@ -80,3 +80,54 @@ this.emit("some-event", mutation.data);
 ```typescript
 state.reset()
 ```
+
+### Listen for the `RXO_RESET` event
+
+```typescript
+state.listen(RXO_RESET, (value) => {
+    console.log(value);
+});
+```
+
+### Listen for a custom event 
+
+```typescript
+state.listen("some-event", (value) => {
+    console.log(value);
+});
+```
+
+### Execute a function whenever state changes
+
+```typescript
+const subscription = state.signal((value => {
+    console.log(value);
+}));
+
+subscription.unsubscribe();   // unsubscribe from subscription
+```
+
+### Update Angular signal on state change
+
+```typescript
+@Component({
+    selector: 'app-root',
+    template: `{{mySignal()}}`,
+    ...
+})
+
+export class AppComponent implements OnInit, OnDestroy {
+    public mySignal: signal(0);
+    private subscription: Subscription;
+
+    constructor(private state: MyRxoState) {}
+
+    ngOnInit() {
+        this.subscription = this.state.signal(signal.set);
+    }
+
+    ngOnDestroy() {
+        this.subscription.unsubscribe();
+    }
+}
+```
