@@ -2,6 +2,8 @@
 
 Observable state management using RxJs.
 
+[API Documentation](https://mitchgibson.github.io/rxo-state/)
+
 ## Install
 
 ```bash
