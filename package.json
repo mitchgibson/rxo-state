@@ -11,6 +11,7 @@
         "angular",
         "observable",
         "lightweight",
+        "flexible",
         "framework agnostic"
     ],
     "type": "module",
