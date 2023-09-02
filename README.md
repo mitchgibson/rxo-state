@@ -133,3 +133,7 @@ export class AppComponent implements OnInit, OnDestroy {
     }
 }
 ```
+
+## Contributing
+
+See [Contributin](https://github.com/mitchgibson/rxo-state/edit/main/CONTRIBUTING.md)
