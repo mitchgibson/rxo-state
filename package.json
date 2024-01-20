@@ -1,6 +1,6 @@
 {
     "name": "rxo-state",
-    "version": "0.6.4",
+    "version": "0.7.0",
     "description": "A reusable pattern for implementing reactive state management in web applications using RxJs.",
     "keywords": [
         "state",
