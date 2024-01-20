@@ -4,6 +4,12 @@ Observable state management using RxJs.
 
 [API Documentation](https://mitchgibson.github.io/rxo-state/)
 
+## Peer Dependencies
+
+- [RxJs](
+https://www.npmjs.com/package/rxjs
+) - Reactive Extensions for JavaScript
+
 ## Install
 
 ```bash
