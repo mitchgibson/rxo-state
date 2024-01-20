@@ -23,7 +23,7 @@
     "types": "./dist/index.d.ts",
     "repository": {
         "type": "git",
-        "url": "https://github.com/mitchgibson/rxo-state.git"
+        "url": "git+https://github.com/mitchgibson/rxo-state.git"
     },
     "scripts": {
         "build": "vite build",
